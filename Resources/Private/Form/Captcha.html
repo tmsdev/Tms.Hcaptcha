@@ -1,0 +1,11 @@
+<f:layout name="Neos.Form:Field" />
+<f:section name="field">
+    <div class="h-captcha"
+         data-sitekey="{element.properties.siteKey}"
+         data-theme="{element.properties.theme}"
+         data-size="{element.properties.size}"
+         data-tabindex="{element.properties.tabindex}"
+         data-callback="setHcaptchaHiddenFieldValue"
+    ></div>
+    <f:form.hidden property="{element.identifier}" id="{element.uniqueIdentifier}" class="h-captcha-response" />
+</f:section>

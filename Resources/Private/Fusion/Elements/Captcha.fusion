@@ -1,0 +1,14 @@
+prototype(Tms.Hcaptcha:Captcha.Definition) < prototype(Neos.Form.Builder:FormElement.Definition) {
+    @if.enabled = ${Configuration.setting('Tms.Hcaptcha.enabled')}
+    @if.inLiveWorkspace = ${!node.context.inBackend && node.context.workspaceName == 'live'}
+
+    formElementType = 'Tms.Hcaptcha:Captcha'
+    properties {
+        siteKey = ${Configuration.setting('Tms.Hcaptcha.siteKey')}
+        theme = ${Configuration.setting('Tms.Hcaptcha.theme')}
+        size = ${Configuration.setting('Tms.Hcaptcha.size')}
+        tabindex = ${Configuration.setting('Tms.Hcaptcha.tabindex')}
+        callback = ${Configuration.setting('Tms.Hcaptcha.callback')}
+    }
+    validators.isHuman = Tms.Hcaptcha:IsHumanValidator.Definition
+}

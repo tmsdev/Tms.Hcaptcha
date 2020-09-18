@@ -1,0 +1,29 @@
+Tms:
+  Hcaptcha:
+    enabled: true
+    autoIncludeCallbackFunction: true
+
+    theme: light
+    size: normal
+    tabindex: 0
+
+    siteKey: '%env:TMS_HCAPTCHA_SITE_KEY%'
+    secret: '%env:TMS_HCAPTCHA_SECRET%'
+
+Neos:
+  Form:
+    presets:
+      default:
+        formElementTypes:
+          'Tms.Hcaptcha:Captcha':
+            superTypes:
+              - 'Neos.Form:FormElement'
+            renderingOptions:
+              templatePathPattern: 'resource://Tms.Hcaptcha/Private/Form/Captcha.html'
+        validatorPresets:
+          'Tms.Hcaptcha:IsHuman':
+            implementationClassName: Tms\Hcaptcha\Validation\Validator\IsHumanValidator
+  Neos:
+    fusion:
+      autoInclude:
+        'Tms.Hcaptcha': true

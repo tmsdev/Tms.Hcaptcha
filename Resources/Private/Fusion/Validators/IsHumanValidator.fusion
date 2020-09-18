@@ -1,0 +1,6 @@
+prototype(Tms.Hcaptcha:IsHumanValidator.Definition) < prototype(Neos.Form.Builder:Validator.Definition) {
+    formElementType = 'Tms.Hcaptcha:IsHuman'
+    options {
+        secret = ${Configuration.setting('Tms.Hcaptcha.secret')}
+    }
+}
