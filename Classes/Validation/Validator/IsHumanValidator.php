@@ -44,19 +44,27 @@ class IsHumanValidator extends AbstractValidator
             return;
         }
 
+        $requestEngine = new CurlEngine();
+        $requestEngine->setOption(CURLOPT_TIMEOUT, 60);
+
         $browser = new Browser();
-        $browser->setRequestEngine(new CurlEngine());
+        $browser->setRequestEngine($requestEngine);
 
         $uri = 'https://hcaptcha.com/siteverify';
         $arguments['secret'] = $this->getOptions()['secret'];
         $arguments['response'] = $value;
 
-        $response = $browser->request($uri, 'POST', $arguments);
-        $responseContentsArray = json_decode($response->getBody()->getContents(), true);
+        try {
+            $response = $browser->request($uri, 'POST', $arguments);
+            $responseContentsArray = json_decode($response->getBody()->getContents(), true);
 
-        if (!$responseContentsArray['success']) {
-            $this->systemLogger->error($response);
-            $this->addError('Captcha failed. Please try again.', 1600419210);
+            if (!$responseContentsArray['success']) {
+                $this->systemLogger->error($response);
+                $this->addError('Captcha failed. Please try again.', 1600419210);
+            }
+        } catch (\Exception $e) {
+            $this->systemLogger->error($e->getMessage());
+            $this->addError('Captcha verification request failed. Please try again.', 1601958019);
         }
     }
 }
