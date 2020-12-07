@@ -1,23 +1,15 @@
 prototype(Neos.Neos:Page) {
     body.javascripts {
-        hcaptcha = Neos.Fusion:Array {
+        hcaptcha = Neos.Fusion:Tag {
             @if.enabled = ${Configuration.setting('Tms.Hcaptcha.enabled')}
             @if.inLiveWorkspace = ${!node.context.inBackend && node.context.workspaceName == 'live'}
-            helper = Neos.Fusion:Tag {
-                tagName = 'script'
-                attributes {
-                    src = Neos.Fusion:ResourceUri {
-                        path = 'resource://Tms.Hcaptcha/Public/JavaScript/Hcaptcha.js'
-                    }
-                    async = true
+            tagName = 'script'
+            attributes {
+                src = Neos.Fusion:ResourceUri {
+                    path = 'resource://Tms.Hcaptcha/Public/JavaScript/Hcaptcha.js'
                 }
-            }
-            api = Neos.Fusion:Tag {
-                tagName = 'script'
-                attributes {
-                    src = 'https://hcaptcha.com/1/api.js?onload=renderHcpatchaWidget&render=explicit'
-                    async = true
-                }
+                async = true
+                defer = true
             }
         }
     }
