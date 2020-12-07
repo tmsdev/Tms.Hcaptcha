@@ -3,21 +3,20 @@ prototype(Neos.Neos:Page) {
         hcaptcha = Neos.Fusion:Array {
             @if.enabled = ${Configuration.setting('Tms.Hcaptcha.enabled')}
             @if.inLiveWorkspace = ${!node.context.inBackend && node.context.workspaceName == 'live'}
-            api = Neos.Fusion:Tag {
-                tagName = 'script'
-                attributes {
-                    src = 'https://hcaptcha.com/1/api.js'
-                    async = true
-                    defer = true
-                }
-            }
-            callbackFunction = Neos.Fusion:Tag {
-                @if.autoInclude = ${Configuration.setting('Tms.Hcaptcha.autoIncludeCallbackFunction')}
+            helper = Neos.Fusion:Tag {
                 tagName = 'script'
                 attributes {
                     src = Neos.Fusion:ResourceUri {
                         path = 'resource://Tms.Hcaptcha/Public/JavaScript/Hcaptcha.js'
                     }
+                    async = true
+                    defer = true
+                }
+            }
+            api = Neos.Fusion:Tag {
+                tagName = 'script'
+                attributes {
+                    src = 'https://hcaptcha.com/1/api.js?onload=renderHcpatchaWidget&render=explicit'
                     async = true
                     defer = true
                 }

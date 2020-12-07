@@ -1,7 +1,6 @@
 Tms:
   Hcaptcha:
     enabled: true
-    autoIncludeCallbackFunction: true
 
     theme: light
     size: normal

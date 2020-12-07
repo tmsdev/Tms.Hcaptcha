@@ -1,11 +1,22 @@
 <f:layout name="Neos.Form:Field" />
 <f:section name="field">
-    <div class="h-captcha"
+    <noscript>
+        This form requires a captcha to prevent spam submissions.
+        Please enable JavaScript for this page to verify that you are not a robot.
+    </noscript>
+    <button type="button" class="btn btn-link btn-sm"
+            data-captcha-forceload="{element.uniqueIdentifier}"
+            onclick="forceRenderHcpatchaWidget(this);">
+        Please click here to confirm that you are human
+    </button>
+    <div id="{element.uniqueIdentifier}"
+         class="h-captcha"
          data-sitekey="{element.properties.siteKey}"
          data-theme="{element.properties.theme}"
          data-size="{element.properties.size}"
          data-tabindex="{element.properties.tabindex}"
          data-callback="setHcaptchaHiddenFieldValue"
+         style="min-height: 85px;"
     ></div>
-    <f:form.hidden property="{element.identifier}" id="{element.uniqueIdentifier}" class="h-captcha-response" />
+    <f:form.hidden property="{element.identifier}" id="{element.uniqueIdentifier}-response" class="h-captcha-response" />
 </f:section>
