@@ -1,5 +1,5 @@
 prototype(Neos.Neos:Page) {
-    head {
+    body.javascripts {
         hcaptcha = Neos.Fusion:Array {
             @if.enabled = ${Configuration.setting('Tms.Hcaptcha.enabled')}
             @if.inLiveWorkspace = ${!node.context.inBackend && node.context.workspaceName == 'live'}
