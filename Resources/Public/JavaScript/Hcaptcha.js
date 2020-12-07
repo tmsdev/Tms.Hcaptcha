@@ -7,7 +7,7 @@ function setHcaptchaHiddenFieldValue(response) {
 function renderHcpatchaWidget() {
     let forms = document.querySelectorAll('form');
     Array.prototype.forEach.call(forms, function (form) {
-        form.addEventListener('input', (e) => {
+        form.addEventListener('input', function() {
             let widget = form.querySelector('.h-captcha');
             if (widget && !widget.firstChild) {
                 hcaptcha.render(widget.getAttribute('id'));
