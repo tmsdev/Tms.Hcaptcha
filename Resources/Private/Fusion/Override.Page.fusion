@@ -10,7 +10,6 @@ prototype(Neos.Neos:Page) {
                         path = 'resource://Tms.Hcaptcha/Public/JavaScript/Hcaptcha.js'
                     }
                     async = true
-                    defer = true
                 }
             }
             api = Neos.Fusion:Tag {
@@ -18,7 +17,6 @@ prototype(Neos.Neos:Page) {
                 attributes {
                     src = 'https://hcaptcha.com/1/api.js?onload=renderHcpatchaWidget&render=explicit'
                     async = true
-                    defer = true
                 }
             }
         }
