@@ -7,7 +7,7 @@ function setHcaptchaHiddenFieldValue(response) {
 function renderHcpatchaWidget() {
     let forms = document.querySelectorAll('form');
     Array.prototype.forEach.call(forms, function (form) {
-        form.addEventListener('input', function() {
+        form.addEventListener('input', function(e) {
             let widget = form.querySelector('.h-captcha');
             if (widget && !widget.firstChild) {
                 hcaptcha.render(widget.getAttribute('id'));
@@ -15,6 +15,8 @@ function renderHcpatchaWidget() {
                 if (btn) {
                     btn.style.display = 'none';
                 }
+                // Make sure the trigger element get's focused again
+                e.target.focus();
             }
         });
     });
@@ -25,8 +27,7 @@ function forceRenderHcpatchaWidget(btn) {
     btn.style.display = 'none';
 }
 
-function loadHcaptchaApi(url, callback)
-{
+function loadHcaptchaApi(url, callback) {
     // Adding the script tag to the head as suggested before
     var head = document.head;
     var script = document.createElement('script');
