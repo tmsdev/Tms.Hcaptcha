@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="Tms.Hcaptcha" source-language="en" target-language="de" datatype="plaintext">
+        <body>
+            <trans-unit id="1221560910" xml:space="preserve" approved="yes">
+				<source>This property is required</source>
+                <target state="final">Diese Eigenschaft ist erforderlich</target>
+            </trans-unit>
+            <trans-unit id="1221560718" xml:space="preserve" approved="yes">
+				<source>This property is required</source>
+                <target state="final">Diese Eigenschaft ist erforderlich</target>
+            </trans-unit>
+            <trans-unit id="1600419210">
+                <source>Captcha failed. Please try again.</source>
+                <target xml:lang="de" state="translated">Die Captcha Prüfung ist fehlgeschlagen. Bitte versuchen Sie es noch einmal.</target>
+            </trans-unit>
+            <trans-unit id="1601958019">
+                <source>Captcha verification request failed. Please try again.</source>
+                <target xml:lang="de" state="translated">Captcha konnte nicht geprüft werden. Bitte versuchen Sie es noch einmal.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

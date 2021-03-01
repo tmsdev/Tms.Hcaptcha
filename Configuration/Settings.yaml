@@ -19,6 +19,7 @@ Neos:
               - 'Neos.Form:FormElement'
             renderingOptions:
               templatePathPattern: 'resource://Tms.Hcaptcha/Private/Form/Captcha.html'
+              validationErrorTranslationPackage: Tms.Hcaptcha
         validatorPresets:
           'Tms.Hcaptcha:IsHuman':
             implementationClassName: Tms\Hcaptcha\Validation\Validator\IsHumanValidator
@@ -26,3 +27,9 @@ Neos:
     fusion:
       autoInclude:
         'Tms.Hcaptcha': true
+
+    userInterface:
+      translation:
+        autoInclude:
+          'Tms.Hcaptcha':
+            - 'Main'

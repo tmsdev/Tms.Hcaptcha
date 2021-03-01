@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="Tms.Hcaptcha" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="widget.noScript.message">
+                <source>This form requires a captcha to prevent spam submissions. Please enable JavaScript for this page to verify that you are not a robot.</source>
+            </trans-unit>
+            <trans-unit id="widget.notLoaded.message">
+                <source>Please click here to confirm that you are human</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
