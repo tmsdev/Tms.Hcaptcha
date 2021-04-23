@@ -41,8 +41,8 @@ class IsHumanValidator extends AbstractValidator
      */
     protected function isValid($value)
     {
-        if (!is_string($value)) {
-            $this->addError('Not a valid string.', 1600419197);
+        if (!is_string($value) || empty($value)) {
+            $this->addError('Please solve the captcha.', 1600419197);
             return;
         }
 
