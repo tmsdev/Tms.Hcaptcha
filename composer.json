@@ -1,6 +1,6 @@
 {
     "name": "tms/hcaptcha",
-    "type": "neos-tms",
+    "type": "neos-plugin",
     "description": "hCaptcha form element for Neos.Form",
     "require": {
         "neos/form": "^4.0 || ^5.0"
