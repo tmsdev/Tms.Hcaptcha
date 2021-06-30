@@ -1,11 +1,9 @@
 <?php
 namespace Tms\Hcaptcha\Validation\Validator;
 
-use http\Encoding\Stream;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Http\Client\Browser;
 use Neos\Flow\Http\Client\CurlEngine;
-use Neos\Flow\Http\ContentStream;
 use Neos\Flow\Log\Utility\LogEnvironment;
 use Neos\Flow\Validation\Validator\AbstractValidator;
 use Psr\Log\LoggerInterface;
@@ -57,7 +55,6 @@ class IsHumanValidator extends AbstractValidator
         $arguments['response'] = $value;
 
         try {
-            // TODO: needs testing - the third request() param "$arguments" does not work anymore since Neos 5.3
             $response = $browser->request($uri, 'POST', [], [], [], http_build_query($arguments));
             $responseContentsArray = json_decode($response->getBody()->getContents(), true);
 

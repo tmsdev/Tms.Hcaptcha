@@ -4,7 +4,7 @@ function setHcaptchaHiddenFieldValue(response) {
     document.getElementById(activeFormCaptchaHiddenFieldId).value = response;
 }
 
-function renderHcpatchaWidget() {
+function renderHcaptchaWidget() {
     let forms = document.querySelectorAll('form');
     Array.prototype.forEach.call(forms, function (form) {
         form.addEventListener('input', function(e) {
@@ -22,7 +22,7 @@ function renderHcpatchaWidget() {
     });
 }
 
-function forceRenderHcpatchaWidget(btn) {
+function forceRenderHcaptchaWidget(btn) {
     hcaptcha.render(btn.getAttribute('data-captcha-forceload'));
     btn.style.display = 'none';
 }
@@ -44,4 +44,4 @@ function loadHcaptchaApi(url, callback) {
     head.appendChild(script);
 }
 
-loadHcaptchaApi('https://hcaptcha.com/1/api.js?render=explicit', renderHcpatchaWidget);
+loadHcaptchaApi('https://hcaptcha.com/1/api.js?render=explicit', renderHcaptchaWidget);

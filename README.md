@@ -2,8 +2,10 @@
 
 Sick of using Google reCAPTCHA in your sites?
 
-We too. Gladly, there is an alternative, which respects data privacy and improves performance.
+We too. Gladly, there is an alternative, which respects data privacy (at least according to https://www.hcaptcha.com/privacy) and improves performance.
 This package provides a [hCaptcha](https://www.hcaptcha.com/) form element for [Neos.Form](https://github.com/neos/form) & [Neos.Form.Builder](https://github.com/neos/form-builder).
+
+By default, the hCaptcha widget will be rendered only on form interaction.
 
 ## Install
 
@@ -24,6 +26,8 @@ Tms:
     siteKey: '%env:TMS_HCAPTCHA_SITE_KEY%'
     secret: '%env:TMS_HCAPTCHA_SECRET%'
 ```
+
+**Note:** In `Development` context we automatically set the test key set (see https://docs.hcaptcha.com/#integration-testing-test-keys)
 
 3.) Add the form element to your form configuration
 
