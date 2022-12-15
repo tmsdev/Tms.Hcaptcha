@@ -1,0 +1,7 @@
+'Tms.Hcaptcha:Captcha':
+  superTypes:
+    'Neos.Form.Builder:FormElement': true
+  ui:
+    icon: 'icon-shield'
+    group: 'form.custom'
+    label: 'hCaptcha'
